@@ -8,7 +8,6 @@ import {
   Line,
   XAxis,
   YAxis,
-  //   CartesianGrid,
   ResponsiveContainer,
   Tooltip,
   Legend,
@@ -17,11 +16,11 @@ import {
 const RaisedCapitalCard: React.FC = () => {
   let data: CompanyTrendData[] = [];
 
-  data = generateMockCompanyData(10);
+  data = generateMockCompanyData(10,"Raised Capital");
 
   return (
     <>
-      <div className="row-span-2 bg-gradient-to-tr flex items-center flex-col gap-4 p-4 from-indigo-400 to-purple-400 dark:from-indigo-600 dark:to-purple-600 rounded-2xl">
+      <div className="row-span-2 hover:scale-[1.009] transition-transform duration-150 ease-linear bg-gradient-to-tr flex items-center flex-col gap-4 p-4 from-indigo-400 to-purple-400 dark:from-indigo-600 dark:to-purple-600 rounded-2xl">
         <h1 className="text-xl font-bold text-neutral-50">Raised Capital</h1>
         <ResponsiveContainer width="95%" height="90%">
           <LineChart
@@ -30,7 +29,11 @@ const RaisedCapitalCard: React.FC = () => {
             data={data}
             margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
           >
-            <XAxis dataKey="companyName" tick={{ fill: "#ffff" }} axisLine={{fill:"#ffff"}} />
+            <XAxis
+              dataKey="month"
+              tick={{ fill: "#ffff" }}
+              axisLine={{ fill: "#ffff" }}
+            />
             <YAxis tick={{ fill: "#ffff" }} />
             <Tooltip
               content={({ payload, label, active }) => (
@@ -38,11 +41,12 @@ const RaisedCapitalCard: React.FC = () => {
                   payload={payload}
                   label={label}
                   active={active}
+                  type="₹"
                 />
               )}
             />
             <Legend verticalAlign="top" height={36} />
-            <Line type="bumpX" dataKey="raisedCapital" stroke="#ffff" />
+            <Line type="bumpX" dataKey="Raised Capital" stroke="#ffff" />
           </LineChart>
         </ResponsiveContainer>
       </div>

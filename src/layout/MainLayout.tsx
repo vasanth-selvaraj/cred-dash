@@ -5,7 +5,7 @@ import type { MainLayoutProps } from "../@types/TypeExport";
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   return (
     <>
-      <div className="h-screen text-neutral-800 dark:text-neutral-200 w-screen bg-neutral-200 dark:bg-neutral-800">
+      <div className="h-screen text-neutral-800 dark:text-neutral-200 w-screen bg-neutral-50 dark:bg-neutral-900">
         <Navbar />
         <main className="main-content w-full h-full overflow-y-auto">
           <div className="p-8 pt-14 h-full w-full">

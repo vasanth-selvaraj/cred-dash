@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className="fixed inset-0 z-10 top-2 w-full h-10 flex justify-center">
       <div
-        className={`rounded-3xl backdrop-blur-sm bg-white/30 shadow-md w-[95%] h-full`}
+        className={`rounded-3xl backdrop-blur-sm bg-white/20 shadow-md w-[95%] h-full`}
       >
         <div className="px-4 flex justify-between h-full items-center">
           <div>
