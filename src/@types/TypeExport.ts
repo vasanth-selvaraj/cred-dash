@@ -1,6 +1,7 @@
 import { Theme, ThemeContextProps, ThemeProviderProps } from "./Theme";
 import { MainLayoutProps } from "./Layout";
-import { CompanyData } from "./company";
+import { CompanyData, CompanyTrendData } from "./company";
+import { CustomTooltipProps } from "./ChartTooltip";
 
 export type {
   Theme,
@@ -8,4 +9,6 @@ export type {
   ThemeProviderProps,
   MainLayoutProps,
   CompanyData,
+  CompanyTrendData,
+  CustomTooltipProps,
 };

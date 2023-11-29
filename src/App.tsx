@@ -1,11 +1,10 @@
-import MainLayout from "./layout/MainLayout";
-import DashboardPage from "./pages/DashboardPage";
+import { DashboardPage, MainLayout } from "./pages/PagesExport";
 
 function App() {
   return (
     <>
       <MainLayout>
-        <DashboardPage/>
+        <DashboardPage />
       </MainLayout>
     </>
   );

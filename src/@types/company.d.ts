@@ -13,3 +13,9 @@ export interface CompanyData {
     loanInterest: number;
     accountStatus: string;
   }
+
+  export interface CompanyTrendData {
+    companyName: string;
+    raisedCapital: number;
+    // ... Other fields from your company data model
+  }
