@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import Navbar from "../components/Navbar";
-import type { MainLayoutProps } from "../@types/TypeExport";
+import type { MainLayoutProps, ThemeContextProps } from "../@types/TypeExport";
+import { ThemeContext } from "../context/ContextExports";
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+  const { theme } = useContext(ThemeContext) as ThemeContextProps;
   return (
     <>
-      <div className="h-screen text-neutral-800 dark:text-neutral-200 w-screen bg-neutral-50 dark:bg-neutral-900">
+      <div
+        className={`h-screen text-neutral-800 dark:text-neutral-200 w-screen bg-neutral-200 dark:bg-neutral-900 ${
+          theme==="light" ? "light" : "dark"
+        }`}
+      >
         <Navbar />
         <main className="main-content w-full h-full overflow-y-auto">
-          <div className="p-8 pt-14 h-full w-full">
-            <div className="p-4 h-full w-full">{children}</div>
+          <div className="md:px-4 md:pt-10 pt-16 h-full w-full">
+            <div className="px-4 md:pt-10 pb-14 h-full w-full">{children}</div>
           </div>
         </main>
       </div>

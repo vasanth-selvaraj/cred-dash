@@ -12,7 +12,7 @@ export const generateMockCompanyData = (
   for (let i = 0; i < numberOfCompanies; i++) {
     const company: CompanyTrendData = {
       month: faker.date.month(),
-      [name]: faker.number.int({ min: 10000, max: 1000000 }),
+      [name]: faker.number.int({ min: 1000, max: 100000 }),
     };
     data.push(company);
   }

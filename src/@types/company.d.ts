@@ -6,7 +6,7 @@ export interface CompanyData {
   raisedCapital: number;
   turnover: number;
   netProfit: number;
-  contactNumber: string;
+  contactNumber: number;
   contactEmail: string;
   companyWebsite: string;
   loanAmount: number;
@@ -17,5 +17,11 @@ export interface CompanyData {
 export interface CompanyTrendData {
   month: string;
   [key: string]: string | number;
-  // ... Other fields from your company data model
+}
+
+export interface InterestData {
+  "Loan Interest": number | string;
+  "Credit Card Interest": number | string;
+  "Mortgage Interest": number | string;
+  month: string;
 }

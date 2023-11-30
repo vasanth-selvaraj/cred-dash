@@ -28,9 +28,9 @@ const TurnOverCard: React.FC = () => {
   return (
     <>
       <div className="row-span-2 border border-neutral-200 dark:border-neutral-800 hover:scale-[1.009] transition-transform duration-150 ease-linear bg-white dark:bg-neutral-950 shadow-md rounded-2xl flex items-center flex-col gap-4 p-2">
-        <ResponsiveContainer width="95%" height="98%">
+        <ResponsiveContainer width="95%" height="90%">
           <AreaChart
-            width={730}
+            width={500}
             height={250}
             data={data}
             margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
@@ -46,7 +46,7 @@ const TurnOverCard: React.FC = () => {
               tick={{ fill: theme === "light" ? "#262626" : "#e5e5e5" }}
               axisLine={{ fill: theme === "light" ? "#262626" : "#e5e5e5" }}
             />
-            <YAxis tick={{ fill: theme === "light" ? "#262626" : "#e5e5e5" }} />
+            <YAxis dataKey="Turnover" tick={{ fill: theme === "light" ? "#262626" : "#e5e5e5" }} />
             <Legend verticalAlign="top" height={36} />
             {/* <CartesianGrid strokeDasharray="3 3" /> */}
             <Tooltip

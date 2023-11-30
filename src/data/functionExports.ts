@@ -1,3 +1,10 @@
 import { generateMockCompanyData } from "./Trend";
+import { generateMockInterestData } from "./InterestData";
+import { generateCompanyData, ToatlLoan } from "./CompanyData";
 
-export { generateMockCompanyData };
+export {
+  generateMockCompanyData,
+  generateMockInterestData,
+  generateCompanyData,
+  ToatlLoan,
+};
