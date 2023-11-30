@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import type {
-  CompanyTrendData,
   ThemeContextProps,
+  CompanyData,
+  InterestDistribution,
 } from "../../@types/TypeExport";
-import { ThemeContext } from "../../context/ThemeContext";
-import { generateMockCompanyData } from "../../data/Trend";
+import { ThemeContext, CompanyDataContext } from "../../context/ContextExports";
+import { CalculateLoanDistributionGraph } from "../../data/functionExports";
 import { CustomToolTip } from "../ComponentsExport";
 
 import {
@@ -14,26 +15,27 @@ import {
   YAxis,
   ResponsiveContainer,
   Tooltip,
-  Legend,
 } from "recharts";
 
 const TurnOverCard: React.FC = () => {
-  let data: CompanyTrendData[] = [];
+  let data: InterestDistribution[] = [];
 
   const { theme } = useContext(ThemeContext) as ThemeContextProps;
+  const companyData: CompanyData[] = useContext(CompanyDataContext);
 
-  data = generateMockCompanyData(10,"Turnover");
-  console.log(data)
+  data = CalculateLoanDistributionGraph(companyData);
+  console.log(data);
 
   return (
     <>
-      <div className="row-span-2 border border-neutral-200 dark:border-neutral-800 hover:scale-[1.009] transition-transform duration-150 ease-linear bg-white dark:bg-neutral-950 shadow-md rounded-2xl flex items-center flex-col gap-4 p-2">
+      <div className="border border-neutral-200 dark:border-neutral-800 hover:scale-[1.009] transition-transform duration-150 ease-linear bg-white dark:bg-neutral-950 shadow-md rounded-2xl flex items-center flex-col gap-4 p-2">
+        <h1 className="font-medium">Loan Distribution</h1>
         <ResponsiveContainer width="95%" height="90%">
           <AreaChart
             width={500}
             height={250}
             data={data}
-            margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
+            margin={{ top: 5, right: 0, left: -30, bottom: -5 }}
           >
             <defs>
               <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
@@ -42,26 +44,27 @@ const TurnOverCard: React.FC = () => {
               </linearGradient>
             </defs>
             <XAxis
-              dataKey="month"
+              dataKey="year"
               tick={{ fill: theme === "light" ? "#262626" : "#e5e5e5" }}
               axisLine={{ fill: theme === "light" ? "#262626" : "#e5e5e5" }}
             />
-            <YAxis dataKey="Turnover" tick={{ fill: theme === "light" ? "#262626" : "#e5e5e5" }} />
-            <Legend verticalAlign="top" height={36} />
-            {/* <CartesianGrid strokeDasharray="3 3" /> */}
+            <YAxis
+              dataKey="percentage"
+              tick={{ fill: theme === "light" ? "#262626" : "#e5e5e5" }}
+            />
             <Tooltip
               content={({ payload, label, active }) => (
                 <CustomToolTip
                   payload={payload}
                   label={label}
                   active={active}
-                  type="₹"
+                  type="%"
                 />
               )}
             />
             <Area
               type="monotone"
-              dataKey="Turnover"
+              dataKey="percentage"
               stroke="#8884d8"
               fillOpacity={1}
               fill="url(#colorUv)"

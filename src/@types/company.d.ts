@@ -25,3 +25,8 @@ export interface InterestData {
   "Mortgage Interest": number | string;
   month: string;
 }
+
+export interface InterestDistribution {
+  year: number;
+  percentage: number;
+}

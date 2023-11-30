@@ -1,5 +1,5 @@
 import { Faker, en } from "@faker-js/faker";
-import type { CompanyData } from "../@types/TypeExport";
+import type { CompanyData, InterestDistribution } from "../@types/TypeExport";
 
 const faker = new Faker({ locale: [en] });
 
@@ -38,4 +38,17 @@ export const ToatlLoan = (companyData: CompanyData[]) => {
   });
   console.log(total_loan);
   return total_loan;
+};
+
+export const CalculateLoanDistributionGraph = (companyData: CompanyData[]) => {
+  const data: InterestDistribution[] = [];
+  companyData.forEach((company) => {
+    const interestdata: InterestDistribution = {
+      year: company.registrationDate.getFullYear(),
+      percentage: company.loanInterest,
+    };
+    data.push(interestdata);
+  });
+  data.sort((a, b) => a.year - b.year);
+  return data;
 };
