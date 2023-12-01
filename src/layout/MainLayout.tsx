@@ -8,7 +8,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   return (
     <>
       <div
-        className={`h-screen text-neutral-800 dark:text-neutral-200 w-screen bg-neutral-200 dark:bg-neutral-900 ${
+        className={`h-screen text-neutral-800 dark:text-neutral-200 w-screen bg-slate-100 dark:bg-neutral-900 ${
           theme==="light" ? "light" : "dark"
         }`}
       >

@@ -1,4 +1,7 @@
+import { type } from "os";
+
 export interface CompanyData {
+  id:number;
   companyName: string;
   address: string;
   registrationDate: Date;
@@ -20,13 +23,18 @@ export interface CompanyTrendData {
 }
 
 export interface InterestData {
-  "Loan Interest": number | string;
-  "Credit Card Interest": number | string;
-  "Mortgage Interest": number | string;
-  month: string;
+  name: string ;
+  count: number;
 }
 
 export interface InterestDistribution {
   year: number;
   percentage: number;
 }
+
+export interface sortState {
+  field: string;
+  type: "asc" | "desc" ;
+}
+
+export type field = "loanAmount"|"registrationDate"|"raisedCapital"|"netProfit"|"loanInterest"|"turnover"

@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import { CompanyDataContext } from "../context/ContextExports";
 import { CompanyData } from "../@types/TypeExport";
-import { CreditTable, TurnOverCard } from "../components/ComponentsExport";
+import { CreditTable, InterestCard, TurnOverCard } from "../components/ComponentsExport";
 import { ToatlLoan } from "../data/functionExports";
 
 const DashboardPage: React.FC = () => {
-  const companyData: CompanyData[] = useContext(CompanyDataContext);
+  const { companyData }: { companyData: CompanyData[] } =
+    useContext(CompanyDataContext);
 
   return (
     <>
@@ -16,11 +17,12 @@ const DashboardPage: React.FC = () => {
               Outstanding Loans
             </h1>
             <h2 className="text-3xl text-right font-bold">
-              {ToatlLoan(companyData)}
+              {ToatlLoan(companyData)} ₹
             </h2>
           </div>
           <TurnOverCard />
-          <div className="p-4 bg-white dark:bg-neutral-950 shadow-md rounded-2xl hover:scale-[1.009] transition-transform duration-150 ease-linear"></div>
+          <InterestCard/>
+          {/* <div className="p-4 bg-white dark:bg-neutral-950 shadow-md rounded-2xl hover:scale-[1.009] transition-transform duration-150 ease-linear"></div> */}
           <div className="p-4 bg-white dark:bg-neutral-950 shadow-md rounded-2xl hover:scale-[1.009] transition-transform duration-150 ease-linear"></div>
         </div>
         <CreditTable />

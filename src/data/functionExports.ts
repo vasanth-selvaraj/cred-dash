@@ -1,11 +1,17 @@
 import { generateMockCompanyData } from "./Trend";
-import { generateMockInterestData } from "./InterestData";
-import { generateCompanyData, ToatlLoan,CalculateLoanDistributionGraph } from "./CompanyData";
-
-export {
-  generateMockCompanyData,
-  generateMockInterestData,
+import {
   generateCompanyData,
   ToatlLoan,
   CalculateLoanDistributionGraph,
+  SortTableData,
+  CalAccountStatusChartData,
+} from "./CompanyData";
+
+export {
+  generateMockCompanyData,
+  generateCompanyData,
+  ToatlLoan,
+  CalculateLoanDistributionGraph,
+  SortTableData,
+  CalAccountStatusChartData,
 };
