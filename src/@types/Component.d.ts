@@ -1,4 +1,4 @@
-export type viewer = "Table" | "Card";
+export type viewer = "bar" | "pie";
 
 export interface SwitcherProps {
   viewer: viewer;

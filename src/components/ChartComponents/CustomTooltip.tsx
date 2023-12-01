@@ -5,13 +5,15 @@ const CustomToolTip: React.FC<CustomTooltipProps> = ({
   payload,
   label,
   active,
-  type
+  type,
 }) => {
   const renderedPayloadValue = payload && payload[0] && payload[0].value;
+  const renderedLabel = label || (payload && payload[0] && payload[0].name);
+
   return (
     <>
       <div className="flex p-2 text-xs font-medium flex-col rounded-md shadow gap2 bg-neutral-100 dark:bg-neutral-800">
-        <h1 className="text-neutral-700 dark:text-neutral-100">{`${label} : ${renderedPayloadValue} ${type}`}</h1>
+        <h1 className="text-neutral-700 dark:text-neutral-100">{`${renderedLabel} : ${renderedPayloadValue} ${type}`}</h1>
       </div>
     </>
   );

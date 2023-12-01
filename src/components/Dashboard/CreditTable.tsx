@@ -2,10 +2,7 @@ import { useContext, useState } from "react";
 import { CompanyData, sortState, field } from "../../@types/TypeExport";
 import { CompanyDataContext } from "../../context/ContextExports";
 import { Badge } from "../ComponentsExport";
-import {
-  SortTableData,
-  CalAccountStatusChartData,
-} from "../../data/functionExports";
+import { SortTableData } from "../../data/functionExports";
 
 const CreditTable: React.FC = () => {
   const {
@@ -24,8 +21,6 @@ const CreditTable: React.FC = () => {
     setSort({ field: field, type: sort.type === "asc" ? "desc" : "asc" });
     updateCompanyData(SortTableData(companyData, sort.type, field));
   }
-
-  console.log(CalAccountStatusChartData(companyData));
 
   return (
     <>
