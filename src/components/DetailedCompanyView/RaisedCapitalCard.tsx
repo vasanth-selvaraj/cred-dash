@@ -1,12 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import type {
+  CompanyTrendData,
   ThemeContextProps,
-  CompanyData,
-  InterestDistribution,
 } from "../../@types/TypeExport";
-import { ThemeContext, CompanyDataContext } from "../../context/ContextExports";
-import { CalculateLoanDistributionGraph } from "../../data/functionExports";
+import { generateMockCompanyData } from "../../data/functionExports";
 import { CustomToolTip } from "../ComponentsExport";
+import { ThemeContext } from "../../context/ContextExports";
 
 import {
   AreaChart,
@@ -15,27 +14,27 @@ import {
   YAxis,
   ResponsiveContainer,
   Tooltip,
+  Legend,
 } from "recharts";
 
-const TurnOverCard: React.FC = () => {
-  let data: InterestDistribution[] = [];
-
+const RaisedCapitalCard: React.FC = () => {
   const { theme } = useContext(ThemeContext) as ThemeContextProps;
-  const { companyData }: { companyData: CompanyData[] } =
-    useContext(CompanyDataContext);
 
-  data = CalculateLoanDistributionGraph(companyData);
+  const [raisedcapital, setRasiedCapital] = useState<CompanyTrendData[]>([]);
+
+  useEffect(() => {
+    setRasiedCapital(generateMockCompanyData(10, "Raised Capital"));
+  }, []);
 
   return (
     <>
-      <div className="border border-neutral-200 h-40 sm:h-full dark:border-neutral-800 hover:scale-[1.009] transition-transform duration-150 ease-linear bg-white dark:bg-neutral-950 shadow-md rounded-2xl flex items-center flex-col gap-4 p-1">
-        <h1 className="font-medium text-sm">Loan Distribution</h1>
-        <ResponsiveContainer width="95%" height="90%">
+      <div className="sm:col-span-3 sm:h-full sm:pb-0 pb-10 h-40 col-span-1 w-full hover:scale-[1.009] transition-transform duration-150 ease-linear flex items-center flex-col gap-4 p-4 border border-neutral-200 dark:border-neutral-800 rounded-2xl bg-white dark:bg-neutral-950">
+        <ResponsiveContainer width="100%" height="100%">
           <AreaChart
             width={500}
-            height={250}
-            data={data}
-            margin={{ top: 0, right: 0, left: 0, bottom: -5 }}
+            height={300}
+            data={raisedcapital}
+            margin={{ top: 5, right: 3, left: 0, bottom: 5 }}
           >
             <defs>
               <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
@@ -44,7 +43,7 @@ const TurnOverCard: React.FC = () => {
               </linearGradient>
             </defs>
             <XAxis
-              dataKey="year"
+              dataKey="month"
               tick={{
                 fill: theme === "light" ? "#262626" : "#e5e5e5",
                 fontSize: 13,
@@ -52,7 +51,6 @@ const TurnOverCard: React.FC = () => {
               axisLine={{ fill: theme === "light" ? "#262626" : "#e5e5e5" }}
             />
             <YAxis
-              dataKey="percentage"
               tick={{
                 fill: theme === "light" ? "#262626" : "#e5e5e5",
                 fontSize: 13,
@@ -69,9 +67,10 @@ const TurnOverCard: React.FC = () => {
                 />
               )}
             />
+            <Legend verticalAlign="top" height={36} />
             <Area
               type="monotone"
-              dataKey="percentage"
+              dataKey="Raised Capital"
               stroke="#8884d8"
               fillOpacity={1}
               fill="url(#colorUv)"
@@ -83,4 +82,4 @@ const TurnOverCard: React.FC = () => {
   );
 };
 
-export default TurnOverCard;
+export default RaisedCapitalCard;

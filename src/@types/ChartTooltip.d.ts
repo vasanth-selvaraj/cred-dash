@@ -3,4 +3,5 @@ export interface CustomTooltipProps {
   label: string | number;
   active: boolean | undefined;
   type: string | undefined;
+  chart: string | undefined;
 }

@@ -21,9 +21,14 @@ export const generateCompanyData = (
     const company: CompanyData = {
       id: i + 1,
       companyName: faker.company.name(),
-      address: faker.location.streetAddress({ useFullAddress: true }),
+      address: {
+        country: faker.location.county(),
+        street: faker.location.street(),
+        pincode: faker.location.zipCode(),
+        city: faker.location.city(),
+      },
       registrationDate: faker.date.past({ years: 20 }),
-      numberOfEmployees: faker.number.int(),
+      numberOfEmployees: faker.number.int({ min: 10, max: 2000 }),
       raisedCapital: faker.number.int({ min: 100000, max: 999999 }),
       turnover: faker.number.int({ min: 300000, max: 1999999 }),
       netProfit: faker.number.int({ min: 150000, max: 899999 }),
@@ -47,6 +52,16 @@ export const ToatlLoan = (companyData: CompanyData[]) => {
     }
   });
   return total_loan;
+};
+
+export const ActiveLoans = (companyData: CompanyData[]) => {
+  let active_loan = 0;
+  companyData.forEach((data) => {
+    if (data.accountStatus === "Active") {
+      active_loan++;
+    }
+  });
+  return active_loan;
 };
 
 export const CalculateLoanDistributionGraph = (companyData: CompanyData[]) => {
@@ -93,6 +108,25 @@ export const SortTableData = (
   return [...data].sort(sortByField);
 };
 
+export const SortTableByDate = (
+  data: CompanyData[],
+  sortOrder: "asc" | "desc",
+  field: field
+) => {
+  const sortByField = (a: CompanyData, b: CompanyData) => {
+    const aValue = new Date(a.registrationDate);
+    const bValue = new Date(b.registrationDate);
+
+    if (sortOrder === "asc") {
+      return aValue.getTime() - bValue.getTime();
+    } else if (sortOrder === "desc") {
+      return bValue.getTime() - aValue.getTime();
+    }
+    return 0;
+  };
+  return [...data].sort(sortByField);
+};
+
 export const CalAccountStatusChartData = (compdata: CompanyData[]) => {
   const { theme } = useContext(ThemeContext) as ThemeContextProps;
   const countByStatus: Record<string, number> = compdata.reduce((acc, item) => {
@@ -104,12 +138,12 @@ export const CalAccountStatusChartData = (compdata: CompanyData[]) => {
     {
       name: "Active",
       count: countByStatus.Active | 0,
-      fill: theme === "light" ? "#86efac" : "#166534",
+      fill: theme === "light" ? "#86efac" : "#4ade80",
     },
     {
       name: "Pending",
       count: countByStatus.Pending | 0,
-      fill: theme === "light" ? "#fcd34d" : "#f59e0b",
+      fill: theme === "light" ? "#fcd34d" : "#fbbf24",
     },
     {
       name: "Closed",

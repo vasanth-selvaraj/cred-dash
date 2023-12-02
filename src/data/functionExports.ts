@@ -5,7 +5,10 @@ import {
   CalculateLoanDistributionGraph,
   SortTableData,
   CalAccountStatusChartData,
+  SortTableByDate,
+  ActiveLoans,
 } from "./CompanyData";
+import { GeneratecompanyProfitData } from "./SingleCompanyData";
 
 export {
   generateMockCompanyData,
@@ -14,4 +17,7 @@ export {
   CalculateLoanDistributionGraph,
   SortTableData,
   CalAccountStatusChartData,
+  GeneratecompanyProfitData,
+  SortTableByDate,
+  ActiveLoans,
 };

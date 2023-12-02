@@ -3,11 +3,11 @@ import { SwitcherProps } from "../@types/TypeExport";
 const Switcher: React.FC<SwitcherProps> = ({ viewer, onChangeViewer }) => {
   return (
     <>
-      <div className="rounded-md flex border dark:border-neutral-800 border-neutral-300 shadow-sm dark:bg-neutral-900 gap-1 p-1">
+      <div className="rounded-md flex border dark:border-neutral-800 border-neutral-300 shadow-sm dark:bg-neutral-900 gap-1 p-0.5">
         <div
           onClick={() => onChangeViewer("pie")}
-          className={`px-0.5 py-0.5 hover:bg-neutral-200 dark:hover:bg-neutral-800 rounded cursor-pointer ${
-            viewer === "pie" && "bg-neutral-200 dark:bg-neutral-800"
+          className={`px-0.5 py-0.5 hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded cursor-pointer ${
+            viewer === "pie" && "bg-neutral-200 dark:bg-neutral-700"
           }`}
         >
           <svg
@@ -16,7 +16,7 @@ const Switcher: React.FC<SwitcherProps> = ({ viewer, onChangeViewer }) => {
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            className="w-3 h-3"
+            className="w-[13px] h-[13px]"
           >
             <path
               stroke-linecap="round"
@@ -32,8 +32,8 @@ const Switcher: React.FC<SwitcherProps> = ({ viewer, onChangeViewer }) => {
         </div>
         <div
           onClick={() => onChangeViewer("bar")}
-          className={`px-0.5 py-0.5 hover:bg-neutral-200 dark:hover:bg-neutral-800 rounded cursor-pointer ${
-            viewer === "bar" && "bg-neutral-200 dark:bg-neutral-800"
+          className={`px-0.5 py-0.5 hover:bg-neutral-200 dark:hover:bg-neutral-700 rounded cursor-pointer ${
+            viewer === "bar" && "bg-neutral-200 dark:bg-neutral-700"
           }`}
         >
           <svg
@@ -42,7 +42,7 @@ const Switcher: React.FC<SwitcherProps> = ({ viewer, onChangeViewer }) => {
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            className="w-3 h-3"
+            className="w-[13px] h-[13px]"
           >
             <path
               stroke-linecap="round"

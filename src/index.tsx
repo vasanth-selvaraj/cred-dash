@@ -3,18 +3,27 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { ThemeProvider, CompanyDataProvider } from "./context/ContextExports";
+import {
+  ThemeProvider,
+  CompanyDataProvider,
+  SelectedCompanyProvider,
+} from "./context/ContextExports";
+import { HashRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <ThemeProvider>
-      <CompanyDataProvider>
-        <App />
-      </CompanyDataProvider>
-    </ThemeProvider>
+    <HashRouter>
+      <ThemeProvider>
+        <CompanyDataProvider>
+          <SelectedCompanyProvider>
+            <App />
+          </SelectedCompanyProvider>
+        </CompanyDataProvider>
+      </ThemeProvider>
+    </HashRouter>
   </React.StrictMode>
 );
 

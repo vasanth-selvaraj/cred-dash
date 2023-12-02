@@ -7,8 +7,10 @@ import {
   InterestDistribution,
   sortState,
   field,
+  companyProfitData,
 } from "./company";
 import { CustomTooltipProps } from "./ChartTooltip";
+import { SelectedCompanyContextProps,SelectedCompanyProviderProps } from "./SelectedCompany";
 import {
   CompanyDataProviderProps,
   CompanyDataContextProps,
@@ -28,9 +30,12 @@ export type {
   CompanyDataContextProps,
   SwitcherProps,
   viewer,
+  SelectedCompanyContextProps,
+  SelectedCompanyProviderProps,
   state,
   BadgeProps,
   InterestDistribution,
   sortState,
   field,
+  companyProfitData,
 };
