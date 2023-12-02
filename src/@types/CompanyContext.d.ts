@@ -7,4 +7,5 @@ export interface CompanyDataProviderProps {
 
 interface CompanyDataContextProps {
     companyData: CompanyData[];
+    updateCompanyData: (data: CompanyData[]) => void;
   }

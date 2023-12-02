@@ -14,7 +14,7 @@ const Navbar: React.FC = () => {
   }, [theme]);
 
   return (
-    <nav className="fixed inset-0 z-10 top-2 w-full h-10 flex justify-center">
+    <nav className="fixed inset-0 z-30 top-2 w-full h-10 flex justify-center">
       <div
         className={`rounded-3xl backdrop-blur-sm bg-gray-100/10 shadow-xl w-[95%] h-full`}
       >

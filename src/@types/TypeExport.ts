@@ -1,7 +1,16 @@
 import { Theme, ThemeContextProps, ThemeProviderProps } from "./Theme";
 import { MainLayoutProps } from "./Layout";
-import { CompanyData, CompanyTrendData, InterestData } from "./company";
+import {
+  CompanyData,
+  CompanyTrendData,
+  InterestData,
+  InterestDistribution,
+  sortState,
+  field,
+  companyProfitData,
+} from "./company";
 import { CustomTooltipProps } from "./ChartTooltip";
+import { SelectedCompanyContextProps,SelectedCompanyProviderProps } from "./SelectedCompany";
 import {
   CompanyDataProviderProps,
   CompanyDataContextProps,
@@ -21,6 +30,12 @@ export type {
   CompanyDataContextProps,
   SwitcherProps,
   viewer,
+  SelectedCompanyContextProps,
+  SelectedCompanyProviderProps,
   state,
   BadgeProps,
+  InterestDistribution,
+  sortState,
+  field,
+  companyProfitData,
 };
