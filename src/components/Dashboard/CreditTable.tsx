@@ -57,7 +57,7 @@ const CreditTable: React.FC = () => {
     <>
       <div className=" flex flex-col gap-4 py-4">
         <div className="flex justify-between">
-          <div className="w-56 relative">
+          <div className="sm:w-56 w-36 relative z-10">
             <input //search input field
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
@@ -98,7 +98,7 @@ const CreditTable: React.FC = () => {
               </div>
             )}
           </div>
-          <div>
+          <div className="relative z-20">
             <RangeFilter value={value} onchangeDate={onChangeDate} />
           </div>
         </div>
