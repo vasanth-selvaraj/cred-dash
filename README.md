@@ -1,46 +1,61 @@
-# Getting Started with Create React App
+# Cred Dash
+My project aims to create an interactive dashboard displaying credit information using modern web technologies. Leveraging the power of Faker.js for generating realistic fake data and Recharts for dynamic data visualization, this dashboard provides a comprehensive overview of credit-related metrics.
+- - - -
+### **Installation and Starting the Project**
+##### **Prerequisites:**
+* Node.js installed on your machine. You can download it from [Node.js website](https://nodejs.org/).
+##### **Steps:**
+* ##### **Clone the Repository:**
+``` bash 
+git clone https://github.com/vasanth-selvaraj/cred-dash.git
+cd cred-dash 
+```
+* ##### **Install Dependencies:**
+```bash
+npm install
+```
+* ##### **Start the Development Server:**
+```bash
+npm start
+```
+* ##### **Accessing the Dashboard:**
+```bash
+ http://localhost:3000
+ ```
+### key Features:
+* **Data Visualization:** Utilizing *Recharts*, we implement various graph types (line charts, bar graphs, pie charts, Area Charts.) to visually represent credit-related information such as Loan Distribution, Profit Graph, Raised Capitals, and more.
+* **Dynamic Filters:** The dashboard includes intuitive filtering options, allowing users to dynamically manipulate and view specific data sets based on criteria like date ranges, account status, sorting, searching and more.
+* **Realistic Data Generation:** Faker.js is employed to generate credible mock data, providing a realistic simulation of credit-related statistics, customer profiles, and transactional information.
+* **Responsive Design:** The dashboard is designed with responsiveness in mind, ensuring seamless viewing across various devices and screen sizes, providing an optimal user experience.
+## Technologies Used
+* **React:** Utilized for building a dynamic and efficient user interface.
+* **Recharts:** Employs React components for crafting interactive and visually appealing graphs and charts.
+* **Faker.js:** Used for generating synthetic but realistic credit-related data.
+* **TypeScript:**
+* **HTML, Tailwind CSS,:** Core technologies for structuring, styling, and implementing interactive elements on the website with Theming.
+## UI Elements
+#### Dashboard Page:
+![DashBoard Page](https://drive.google.com/uc?export=download&id=1G3tKIwTPCIlpad4mFbZx5v_LBPrAIV2O)
+- - - -
+#### Filters:
+* ***Search Filter:*** To search Company Names
+* ***Sort:*** The Arrows are used to sort the Table in Ascending or Descending Order
+* ***Date Filter:*** Date Range Filter to filter the data between selected Date by Company Registration date
+* ***Status Filter:*** A Checkbox to filter the table based on the three values **Active** , **Pending**, and **Closed**.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Filters Page](https://drive.google.com/uc?export=download&id=1hsjwUYSrCRLnJagBgqREBNjElOq_1b-x)
+----
+#### Graph Switcher:
+***Switcher:*** You can switch between Bar and Pie chart using this button
+![Graph Switcher](https://drive.google.com/uc?export=download&id=1ayWc4EQ87udwIUnvZB9g6TOF2QnB5ABQ)
+----
+#### Theme Switcher:
+* User can use switch between Dark and Light Mode
+![Theme Switcher](https://drive.google.com/uc?export=download&id=1zm3XVKF3LiTjr8BIgqG0RDySmIuY5X1s)
+----
+#### Company Details Page:
+![](https://drive.google.com/uc?export=download&id=1rXMFKFxx06Oe1RMkQpJTEyMX-mHVc7kO)
+---
+#### Company Details View navigate:
+* User can click on the view button to navigate to company details page. It will be visible when hovering over the row
+![Details Nav](https://drive.google.com/uc?export=download&id=1zBFMlWX2OE37zJ-fTWyvIkWoaMuFfXFp)
