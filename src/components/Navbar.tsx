@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { ThemeContext } from "../context/ThemeContext";
+import Logo from "../asset/logo.png"
 import type { ThemeContextProps } from "../@types//TypeExport";
 
 const Navbar: React.FC = () => {
@@ -21,9 +22,9 @@ const Navbar: React.FC = () => {
         <div className="px-4 flex justify-between h-full items-center">
           <div>
             <img
-              src="https://mavenberg.com/logoname.png"
+              src={Logo}
               alt="logo"
-              className="h-7"
+              className="h-10"
             />
           </div>
           <div onClick={() => handleTheme()}>
