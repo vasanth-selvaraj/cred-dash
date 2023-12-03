@@ -1,4 +1,4 @@
-import { createContext, useState, FC } from "react";
+import { createContext, useState, FC, useEffect } from "react";
 import type {
   ThemeContextProps,
   Theme,
@@ -11,10 +11,16 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
   const [theme, setTheme] = useState<Theme>("light");
 
   const handleTheme = () => {
+    localStorage.setItem("theme", theme === "light" ? "dark" : "light");
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
-    localStorage.setItem("theme", "dark");
   };
 
+  useEffect(() => {
+    const T: Theme | null = localStorage.getItem("theme") as Theme | null;
+    if (T !== null) {
+      setTheme(T);
+    }
+  }, []);
   const contextValue: ThemeContextProps = {
     theme,
     handleTheme,

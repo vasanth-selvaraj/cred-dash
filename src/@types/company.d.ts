@@ -49,3 +49,8 @@ export interface companyProfitData{
   netProfit:number;
   turnover:number
 }
+
+export interface DateTypes{
+  minDate:Date|null;
+  maxDate:Date|null
+}

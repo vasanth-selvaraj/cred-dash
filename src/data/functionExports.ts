@@ -7,6 +7,7 @@ import {
   CalAccountStatusChartData,
   SortTableByDate,
   ActiveLoans,
+  calculateMinandMaxDates,
 } from "./CompanyData";
 import { GeneratecompanyProfitData } from "./SingleCompanyData";
 
@@ -20,4 +21,5 @@ export {
   GeneratecompanyProfitData,
   SortTableByDate,
   ActiveLoans,
+  calculateMinandMaxDates,
 };

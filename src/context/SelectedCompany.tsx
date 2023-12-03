@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import {
   CompanyData,
   SelectedCompanyContextProps,
@@ -39,8 +39,16 @@ const SelectedCompanyProvider: React.FC<SelectedCompanyProviderProps> = ({
     useState<CompanyData>(initialData);
 
   const updateSelectedCompany = (data: CompanyData) => {
+    localStorage.setItem("company", JSON.stringify(data));
     setSelectedCompanyData(data);
   };
+
+  useEffect(() => {
+    const storedCompany: string | null = localStorage.getItem("company");
+    if (storedCompany) {
+      setSelectedCompanyData(JSON.parse(storedCompany));
+    }
+  }, []);
 
   return (
     <SelectedCompanyContext.Provider

@@ -29,9 +29,10 @@ const MainCard: React.FC = () => {
   const [graphData, setGraphData] = useState<companyProfitData[]>([]);
 
   useEffect(() => {
+    const yeardata = new Date(selectedcompanyData.registrationDate);
     setGraphData(
       GeneratecompanyProfitData(
-        selectedcompanyData.registrationDate.getFullYear(),
+        yeardata.getFullYear(),
         selectedcompanyData.netProfit,
         selectedcompanyData.turnover
       )

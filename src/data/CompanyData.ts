@@ -27,7 +27,7 @@ export const generateCompanyData = (
         pincode: faker.location.zipCode(),
         city: faker.location.city(),
       },
-      registrationDate: faker.date.past({ years: 20 }),
+      registrationDate: faker.date.past({ years: 10 }),
       numberOfEmployees: faker.number.int({ min: 10, max: 2000 }),
       raisedCapital: faker.number.int({ min: 100000, max: 999999 }),
       turnover: faker.number.int({ min: 300000, max: 1999999 }),
@@ -153,4 +153,23 @@ export const CalAccountStatusChartData = (compdata: CompanyData[]) => {
   ];
 
   return chartdata;
+};
+
+export const calculateMinandMaxDates = (compdata: CompanyData[]) => {
+  if (compdata.length === 0) {
+    return { minDate: new Date(), maxDate: new Date() };
+  }
+
+  let minDate: Date = compdata[0].registrationDate;
+  let maxDate: Date = compdata[0].registrationDate;
+
+  for (let i = 0; i < compdata.length; i++) {
+    if (compdata[i].registrationDate < minDate) {
+      minDate = compdata[i].registrationDate;
+    }
+    if (compdata[i].registrationDate > maxDate) {
+      maxDate = compdata[i].registrationDate;
+    }
+  }
+  return { minDate, maxDate };
 };

@@ -14,23 +14,25 @@ const CompanyDetails: React.FC = () => {
     useContext(SelectedCompanyContext);
   return (
     <>
-      <section className="h-full w-full">
-        <h1 className="w-full pb-4 flex text-3xl font-serif">
-          {selectedcompanyData.companyName}
-        </h1>
-        <div className="grid xl:grid-cols-6 grid-rows-2 xl:grid-rows-none gap-4">
-          <MainCard />
-          <LoanDetailsCard />
-        </div>
-        <h2 className="w-full py-3 font-medium flex text-xl">
-          Company Details :
-        </h2>
-        <div className="grid  xl:grid-cols-6 xl:grid-rows-none grid-rows-2 gap-4">
-          <AddressCard />
-          <CompanyCards />
-          <RaisedCapitalCard />
-        </div>
-      </section>
+      {selectedcompanyData.contactNumber !== 0 && (
+        <section className="h-full w-full">
+          <h1 className="w-full pb-4 flex text-3xl font-serif">
+            {selectedcompanyData.companyName}
+          </h1>
+          <div className="grid xl:grid-cols-6 grid-rows-2 xl:grid-rows-none gap-4">
+            <MainCard />
+            <LoanDetailsCard />
+          </div>
+          <h2 className="w-full py-3 font-medium flex text-xl">
+            Company Details :
+          </h2>
+          <div className="grid  xl:grid-cols-6 xl:grid-rows-none grid-rows-2 gap-4">
+            <AddressCard />
+            <CompanyCards />
+            <RaisedCapitalCard />
+          </div>
+        </section>
+      )}
     </>
   );
 };

@@ -1,43 +1,52 @@
-const RangeFilter: React.FC = () => {
-  function handleSliderChange(e: any) {
-    e.stopPropagation();
-  }
+import React, { useEffect, useState, useContext } from "react";
+import Datepicker from "react-tailwindcss-datepicker";
+import { calculateMinandMaxDates } from "../../data/functionExports";
+import { CompanyDataContext } from "../../context/ContextExports";
+import { CompanyData, DateTypes, RangeProps } from "../../@types/TypeExport";
+
+let data: DateTypes = { minDate: new Date(), maxDate: new Date() };
+
+const RangeFilter: React.FC<RangeProps> = ({ value, onchangeDate }) => {
+  const {
+    companyData,
+  }: {
+    companyData: CompanyData[];
+  } = useContext(CompanyDataContext);
+
+  const [range, setRange] = useState<DateTypes>({
+    minDate: new Date("01/01/1970"),
+    maxDate: new Date(),
+  });
+
+  const handleValueChange = (newValue: any) => {
+    if (
+      (newValue && newValue.startDate === null) ||
+      (newValue && newValue.endDate === null)
+    ) {
+      onchangeDate({ startDate: null, endDate: null });
+    } else if (newValue && newValue.startDate && newValue.endDate) {
+      onchangeDate(newValue);
+    }
+  };
+
+  useEffect(() => {
+    if (companyData.length > 0) {
+      data = calculateMinandMaxDates(companyData);
+      setRange({ minDate: data.minDate, maxDate: data.maxDate });
+    }
+  }, [companyData]);
+
   return (
     <>
-      <div className="absolute z-20 group-hover:block hidden right-[100%] rounded-md top-0 p-2 px-3 border border-neutral-200 dark:border-neutral-700 bg-neutral-100 dark:bg-neutral-800 shadow-2xl">
-        <div
-          //   onClick={() => setFilterStates([])}
-          className={`bg-neutral-300 textchange cursor-pointer z-40 items-center justify-evenly rounded-xl px-2 w-20 flex gap-1 dark:bg-neutral-700 ${
-            false && "hidden"
-          }`}
-        >
-          {" "}
-          Clear{" "}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            className="w-4 h-4 hover:text-red-500"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </div>
-        <div className="flex py-1 gap-2">
-          <input
-            min="0"
-            max="100"
-            type="range"
-            className="w-full h-2 rounded appearance-none bg-gradient-to-r from-purple-500 to-indigo-500"
-            onChange={(e) => handleSliderChange(e)}
-          />
-        </div>
-      </div>
+      <Datepicker
+        value={value}
+        maxDate={range.maxDate}
+        startFrom={range.minDate}
+        minDate={range.minDate}
+        displayFormat={"DD/MM/YYYY"}
+        inputClassName="bg-white px-2 placeholder:text-ellipsis placeholder:text-neutral-800 placeholder:dark:text-neutral-500 text-sm font-medium w-[250px] rounded-lg py-1 dark:bg-neutral-950 text-neutral-800 dark:text-neutral-600 focus:outline-none"
+        onChange={handleValueChange}
+      />
     </>
   );
 };

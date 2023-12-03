@@ -12,7 +12,6 @@ const DashboardPage: React.FC = () => {
   const { companyData }: { companyData: CompanyData[] } =
     useContext(CompanyDataContext);
 
-  console.log(companyData);
   return (
     <>
       <section className="h-full w-full flex flex-col gap-6">

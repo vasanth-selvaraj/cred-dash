@@ -8,14 +8,18 @@ import {
   sortState,
   field,
   companyProfitData,
+  DateTypes,
 } from "./company";
 import { CustomTooltipProps } from "./ChartTooltip";
-import { SelectedCompanyContextProps,SelectedCompanyProviderProps } from "./SelectedCompany";
+import {
+  SelectedCompanyContextProps,
+  SelectedCompanyProviderProps,
+} from "./SelectedCompany";
 import {
   CompanyDataProviderProps,
   CompanyDataContextProps,
 } from "./CompanyContext";
-import { SwitcherProps, viewer, state, BadgeProps } from "./Component";
+import { SwitcherProps, viewer, state, BadgeProps,RangeProps,value } from "./Component";
 
 export type {
   Theme,
@@ -38,4 +42,7 @@ export type {
   sortState,
   field,
   companyProfitData,
+  DateTypes,
+  RangeProps,
+  value,
 };

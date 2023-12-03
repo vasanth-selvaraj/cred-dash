@@ -10,3 +10,13 @@ export type state = string;
 export interface BadgeProps {
   state: state;
 }
+
+export interface value {
+  startDate: Date | null;
+  endDate: Date | null;
+}
+
+export interface RangeProps {
+  value: value;
+  onchangeDate: (newval: value) => void;
+}
