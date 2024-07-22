@@ -1,4 +1,5 @@
 # Cred Dash
+
 My project aims to create an interactive dashboard displaying credit information using modern web technologies. Leveraging the power of Faker.js for generating realistic fake data and Recharts for dynamic data visualization, this dashboard provides a comprehensive overview of credit-related metrics.
 ### **Additional Features**
 The project has been hosted in GitHub Pages, you can access it here [Dashboard](https://dashboard.vasanth.tech)
